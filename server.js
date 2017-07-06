@@ -3,7 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Character = require('./models/character.js');
-mongoose.connect('mongodb://localhost:27017/harrypotter');
+const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/harrypotter'
+mongoose.connect(dbURL);
 
 
 app.use(bodyParser.urlencoded({ extended: true}));
