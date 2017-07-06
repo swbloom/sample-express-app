@@ -21,7 +21,9 @@ router.route('/characters')
     .post((req, res) => {
         const character = new Character();
         character.name = req.body.name;
-
+        character.house = req.body.house;
+        character.role = req.body.role;
+    
         character.save((err, payload) => {
             if (err)
                 res.send(err);
